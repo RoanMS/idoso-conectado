@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="barra-acessibilidade">
+        <button onclick="mudarTamanhoFonte(1)">A+ (Aumentar Letra)</button>
+        <button onclick="mudarTamanhoFonte(-1)">A- (Diminuir Letra)</button>
+    </div>
+
     <header>
         <h1>Idoso Conectado</h1>
         <p>Navegue com segurança e independência!</p>
@@ -16,43 +21,61 @@
         <button class="btn-grande btn-seguranca" onclick="mostrarSecao('seguranca')">
             🛡️ Segurança no WhatsApp
         </button>
+        <button class="btn-grande btn-simulador" onclick="mostrarSecao('simulador')">
+            📱 Simulador de Golpes
+        </button>
         <button class="btn-grande btn-acessibilidade" onclick="mostrarSecao('acessibilidade')">
-            📱 Ajustar meu Celular
+            ⚙️ Ajustar Celular
         </button>
     </main>
 
+    <!-- SEÇÃO: SEGURANÇA -->
     <section id="seguranca" class="secao-conteudo" style="display: none;">
         <h2>Proteja-se de Golpes</h2>
 
         <div class="card-dica">
             <h3>1. Falso Boleto ou Pix</h3>
-            <p>Nunca pague boletos ou faça transferências Pix para números desconhecidos que cobram dívidas urgentes no WhatsApp.</p>
+            <p id="texto-pix">Nunca pague boletos ou faça transferências Pix para números desconhecidos que cobram dívidas urgentes no WhatsApp.</p>
+            <button class="btn-ouvir" onclick="lerTexto('texto-pix')">🔊 Ouvir Dica</button>
         </div>
 
         <div class="card-dica">
             <h3>2. Clonagem de Conta</h3>
-            <p>Se um familiar pedir dinheiro emprestado do nada, ligue para ele (em chamada de voz normal) antes de transferir qualquer valor.</p>
-        </div>
-
-        <div class="card-dica">
-            <h3>3. Links Suspeitos</h3>
-            <p>Não clique em links com letras azuis que prometem prêmios grátis, descontos milagrosos ou auxílios do governo. É fraude!</p>
+            <p id="texto-clonagem">Se um familiar pedir dinheiro emprestado do nada, ligue para ele em chamada de voz normal antes de transferir qualquer valor.</p>
+            <button class="btn-ouvir" onclick="lerTexto('texto-clonagem')">🔊 Ouvir Dica</button>
         </div>
 
         <button class="btn-voltar" onclick="mostrarSecao('menu-principal')">⬅ Voltar ao Menu</button>
     </section>
 
-    <section id="acessibilidade" class="secao-conteudo" style="display: none;">
-        <h2>Dicas de Acessibilidade</h2>
+    <!-- SEÇÃO: SIMULADOR (NOVO) -->
+    <section id="simulador" class="secao-conteudo" style="display: none;">
+        <h2>Treinamento Prático</h2>
+        <p style="text-align:center; margin-bottom: 20px;">Veja a mensagem abaixo. Você clicaria neste link?</p>
 
-        <div class="card-dica">
-            <h3>Aumentar as Letras</h3>
-            <p>Vá em <strong>Configurações > Tela (ou Visor) > Tamanho da Fonte</strong> e arraste a bolinha para a direita para deixar as letras maiores.</p>
+        <div class="falso-whatsapp">
+            <p class="remetente">Número Desconhecido</p>
+            <p class="mensagem">Seu benefício do INSS foi bloqueado! 😱 Clique no link azul abaixo imediatamente para atualizar seus dados ou perderá o pagamento deste mês!</p>
+            <button class="falso-link" onclick="alertaGolpe()">🌐 www.atualiza-inss-seguro.com.br</button>
         </div>
 
+        <div id="alerta-modal" class="modal" style="display:none;">
+            <h3>🚨 ISSO É UM GOLPE!</h3>
+            <p>O INSS nunca manda links pelo WhatsApp exigindo atualização imediata. Clicar nisso daria acesso aos seus dados para os criminosos!</p>
+            <button class="btn-voltar" onclick="fecharAlerta()">Entendi!</button>
+        </div>
+
+        <button class="btn-voltar" onclick="mostrarSecao('menu-principal')">⬅ Voltar ao Menu</button>
+    </section>
+
+    <!-- SEÇÃO: ACESSIBILIDADE DO SISTEMA -->
+    <section id="acessibilidade" class="secao-conteudo" style="display: none;">
+        <h2>Dicas para o seu Celular</h2>
+
         <div class="card-dica">
-            <h3>Melhorar a Leitura</h3>
-            <p>Vá em <strong>Configurações > Acessibilidade > Melhorias de Visibilidade</strong> e ative a opção "Fontes de Alto Contraste".</p>
+            <h3>Aumentar as Letras do Aparelho</h3>
+            <p id="texto-letras">Vá em Configurações, depois em Tela ou Visor, escolha Tamanho da Fonte e arraste a bolinha para a direita.</p>
+            <button class="btn-ouvir" onclick="lerTexto('texto-letras')">🔊 Ouvir Dica</button>
         </div>
 
         <button class="btn-voltar" onclick="mostrarSecao('menu-principal')">⬅ Voltar ao Menu</button>
