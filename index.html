@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idoso Conectado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Idoso Conectado</h1>
+        <p>Navegue com segurança e independência!</p>
+    </header>
+
+    <main id="menu-principal">
+        <button class="btn-grande btn-seguranca" onclick="mostrarSecao('seguranca')">
+            🛡️ Segurança no WhatsApp
+        </button>
+        <button class="btn-grande btn-acessibilidade" onclick="mostrarSecao('acessibilidade')">
+            📱 Ajustar meu Celular
+        </button>
+    </main>
+
+    <section id="seguranca" class="secao-conteudo" style="display: none;">
+        <h2>Proteja-se de Golpes</h2>
+
+        <div class="card-dica">
+            <h3>1. Falso Boleto ou Pix</h3>
+            <p>Nunca pague boletos ou faça transferências Pix para números desconhecidos que cobram dívidas urgentes no WhatsApp.</p>
+        </div>
+
+        <div class="card-dica">
+            <h3>2. Clonagem de Conta</h3>
+            <p>Se um familiar pedir dinheiro emprestado do nada, ligue para ele (em chamada de voz normal) antes de transferir qualquer valor.</p>
+        </div>
+
+        <div class="card-dica">
+            <h3>3. Links Suspeitos</h3>
+            <p>Não clique em links com letras azuis que prometem prêmios grátis, descontos milagrosos ou auxílios do governo. É fraude!</p>
+        </div>
+
+        <button class="btn-voltar" onclick="mostrarSecao('menu-principal')">⬅ Voltar ao Menu</button>
+    </section>
+
+    <section id="acessibilidade" class="secao-conteudo" style="display: none;">
+        <h2>Dicas de Acessibilidade</h2>
+
+        <div class="card-dica">
+            <h3>Aumentar as Letras</h3>
+            <p>Vá em <strong>Configurações > Tela (ou Visor) > Tamanho da Fonte</strong> e arraste a bolinha para a direita para deixar as letras maiores.</p>
+        </div>
+
+        <div class="card-dica">
+            <h3>Melhorar a Leitura</h3>
+            <p>Vá em <strong>Configurações > Acessibilidade > Melhorias de Visibilidade</strong> e ative a opção "Fontes de Alto Contraste".</p>
+        </div>
+
+        <button class="btn-voltar" onclick="mostrarSecao('menu-principal')">⬅ Voltar ao Menu</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
